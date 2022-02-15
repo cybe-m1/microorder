@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/candidats")
+@RequestMapping(path = "/api/v1/candidats")
 public class CandidatController {
 
 	private CandidatService candidatService;
