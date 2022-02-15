@@ -1,0 +1,2 @@
+INSERT INTO truck VALUES (1, 'Camion a hotdog', 'A un coup sur la porte droite', NULL, NULL);
+INSERT INTO truck VALUES (2, 'Camion de cuisine Thai', 'Une révision devras être bientot faite', NULL, NULL);
