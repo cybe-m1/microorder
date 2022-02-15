@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.fges</groupId>
-	<artifactId>Offres-Emploi</artifactId>
+	<artifactId>candidat</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Offres-Emploi</name>
 	<description>Projet Prog Par Composant Master 1 Cyber</description>
@@ -45,12 +45,6 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		
-		<!-- SECURITY BASIC AUTH -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		
 		
