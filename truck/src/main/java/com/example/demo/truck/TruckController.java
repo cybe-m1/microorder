@@ -14,7 +14,7 @@ public class TruckController {
     }
 
     @GetMapping
-    public List<Truck> getAllCreneau(){
+    public List<Truck> getAllTruck(){
         return truckService.getAllTruck();
     }
 
