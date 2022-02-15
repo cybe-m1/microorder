@@ -21,7 +21,7 @@ public class TruckService {
     }
 
     public Truck addTruck(Truck newTruck) {
-        if (nbTruckGoingToPosition(newTruck.getId_position())) {
+        if (truckGoingToPosition(newTruck.getId_position())) {
             if (truckRepository.existsById(newTruck.getId_truck())) {
                 throw new IllegalArgumentException("Id " + newTruck.getId_truck() + " déja utilisé");
             } else {
@@ -34,7 +34,7 @@ public class TruckService {
 
     public Truck modifyTruck(Truck truck) {
         if (truckRepository.existsById(truck.getId_truck())) {
-            if (nbTruckGoingToPosition(truck.getId_position())) {
+            if (truckGoingToPosition(truck.getId_position())) {
                 return truckRepository.save(truck);
             } else {
                 throw new IllegalArgumentException("impossible de modifier il y a trop de trucks affecté à la même position");
@@ -46,7 +46,7 @@ public class TruckService {
 
     public Truck putPositionToTruck(int idTruck, int idPosition) {
         if (truckRepository.existsById(idTruck)) {
-            if (nbTruckGoingToPosition(idPosition)) {
+            if (truckGoingToPosition(idPosition)) {
                 Truck truckModifyPosition = truckRepository.getById(idTruck);
                 truckModifyPosition.setId_position(idPosition);
                 return truckRepository.save(truckModifyPosition);
@@ -78,7 +78,7 @@ public class TruckService {
         }
     }
 
-    private boolean nbTruckGoingToPosition(Integer idposition){
+    private boolean truckGoingToPosition(Integer idposition){
         Object[] truckGoingToPosition = truckRepository.findAll().stream().filter(lanbdatruck -> lanbdatruck.getId_position() == idposition).toArray();
         if (truckGoingToPosition.length < 2) {
             return true;
