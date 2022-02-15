@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.fges</groupId>
-	<artifactId>Offres-Emploi</artifactId>
+	<artifactId>offres-emplois</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Offres-Emploi</name>
 	<description>Projet Prog Par Composant Master 1 Cyber</description>
