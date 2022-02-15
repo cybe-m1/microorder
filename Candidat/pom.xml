@@ -47,12 +47,6 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- SECURITY BASIC AUTH -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		
 		
 		<!-- Eviter la redondance entre jointures dans le json de sortie -->
 		<dependency>
