@@ -1,0 +1,6 @@
+
+
+
+springdoc:
+  swagger-ui:
+    url: /easy-food-truck.yml
