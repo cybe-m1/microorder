@@ -1,0 +1,643 @@
+{
+	"info": {
+		"_postman_id": "9702deac-d627-43cc-bf93-abef34499d11",
+		"name": "Offres_Emploi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Loisirs",
+			"item": [
+				{
+					"name": "PutLoisirs",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"loiId\": 1,\r\n    \"nom\": \"Jeux vidéoooos\",\r\n    \"descriptif\": \"Je joue a des jeux multi comme LOL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/loisirs/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loisirs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllLoisirsTODELETE",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/loisirs",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loisirs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostLoisirs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Jeux vidéos\",\r\n    \"descriptif\": \"Je joue a des jeux multi comme LOL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/loisirs",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loisirs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteLoisir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/loisirs/delete/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loisirs",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLoisir",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/loisirs/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loisirs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchLoisirByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/loisirs/searchByNom/Eq",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loisirs",
+								"searchByNom",
+								"Eq"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Competences",
+			"item": [
+				{
+					"name": "GetAllCompetencesTODELETE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/competences",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"competences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCompetence",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Excell\",\r\n    \"descriptif\": \"Je sait utiliser les cases du tableur\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/competences",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"competences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutCompetence",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comId\": 4,\r\n    \"nom\": \"Excelleeee\",\r\n    \"descriptif\": \"Je sait utiliser les cases du tableur\",\r\n    \"niveauExpertise\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/competences",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"competences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCompetence",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/competences/delete/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"competences",
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCompetence",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/competences/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"competences",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchCompetenceByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/competences/searchByNom/J",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"competences",
+								"searchByNom",
+								"J"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Candidats",
+			"item": [
+				{
+					"name": "GetAllCandidatsTODELETE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/candidats",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"candidats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCandidat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Boulnois\",\r\n    \"prenom\": \"Henri\",\r\n    \"dateDeNaissance\": \"2000-04-10\",\r\n    \"email\": \"henri.boulnois@lacatholille.fr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/candidats",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"candidats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addLoisir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/candidats/1/addLoisir/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"candidats",
+								"1",
+								"addLoisir",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCompetence",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/candidats/2/addCompetence/2?niveauExpertise=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"candidats",
+								"2",
+								"addCompetence",
+								"2"
+							],
+							"query": [
+								{
+									"key": "niveauExpertise",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCandidat",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/candidats/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"candidats",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OffresEmplois",
+			"item": [
+				{
+					"name": "GetAllOffreEmploiTODELETE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/offresEmplois",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"offresEmplois"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOffreEmploi",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "eb1b3c53-4977-4d59-8c44-6ee2acfa127c",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/offresEmplois/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"offresEmplois",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchOffreEmploiByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/offresEmplois/searchByNom/D",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"offresEmplois",
+								"searchByNom",
+								"D"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostOffreEmploi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Responsable RH\",\r\n    \"descriptif\": \"Le but de la mission sera de gérer les ressources RH de l'entreprise, notamment de faire des entretiens préalables d'embauche.\",\r\n    \"dateDispo\": \"2022-01-10\",\r\n    \"actif\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/offresEmplois/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"offresEmplois",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutOffreEmploi",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"offId\": 1,\r\n    \"nom\": \"alternant\",\r\n    \"descriptif\": \"Cherche développeur en alternance\",\r\n    \"dateDispo\": \"2021-12-12\",\r\n    \"actif\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/offresEmplois",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"offresEmplois"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteOffreEmploi",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/offresEmplois/delete/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"offresEmplois",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCompetence",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/offresEmplois/2/addCompetence/2?obligatoire=true",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"offresEmplois",
+								"2",
+								"addCompetence",
+								"2"
+							],
+							"query": [
+								{
+									"key": "obligatoire",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCandidat : postuler",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/offresEmplois/2/postuler/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"offresEmplois",
+								"2",
+								"postuler",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listeCandidats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/offresEmplois/2/listeCandidats",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"offresEmplois",
+								"2",
+								"listeCandidats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
