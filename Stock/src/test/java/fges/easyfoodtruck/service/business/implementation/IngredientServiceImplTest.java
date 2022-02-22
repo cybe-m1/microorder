@@ -1,7 +1,6 @@
 package fges.easyfoodtruck.service.business.implementation;
 
 import fges.easyfoodtruck.service.api.model.IngredientDTO;
-import fges.easyfoodtruck.service.business.implementation.IngredientServiceImpl;
 import fges.easyfoodtruck.service.exception.FunctionalException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,6 @@
 package fges.easyfoodtruck.service.business.implementation;
 
 import fges.easyfoodtruck.service.api.model.EstimationDTO;
-import fges.easyfoodtruck.service.api.model.MenuEstimationDTO;
 import fges.easyfoodtruck.service.api.model.ProductEstimationDTO;
 import fges.easyfoodtruck.service.business.contrat.EstimationService;
 import fges.easyfoodtruck.service.client.entity.*;

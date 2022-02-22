@@ -7,7 +7,6 @@ package fges.easyfoodtruck.service.api.controller;
 
 import fges.easyfoodtruck.service.api.model.Error;
 import fges.easyfoodtruck.service.api.model.EstimationDTO;
-import fges.easyfoodtruck.service.api.model.MenuEstimationDTO;
 import fges.easyfoodtruck.service.api.model.ProductEstimationDTO;
 import fges.easyfoodtruck.service.exception.FunctionalException;
 import io.swagger.annotations.*;
