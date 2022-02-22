@@ -18,9 +18,8 @@ spring:
     admin:
       client:
         url: http://localhost:9999 # Or change the port if needed
-
-        instance:
-          name: my-service # Change with the name of your service
+  application:
+    name: customer-service # Change with the name of your service
 management:
   endpoints:
     web:

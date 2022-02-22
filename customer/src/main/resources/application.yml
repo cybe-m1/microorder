@@ -41,9 +41,8 @@ spring:
     admin:
       client:
         url: http://localhost:9999
-
-        instance:
-          name: customer-service
+  application:
+    name: customer-service
 
 logging:
   level:
