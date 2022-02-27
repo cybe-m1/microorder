@@ -8,5 +8,6 @@ spring:
       server:
         git:
           uri: https://github.com/cybe-m1/microorder_config
-
+          username: ${TOKEN_GIT}
+          password: 
 management.endpoints.web.exposure.include: '*'
