@@ -1,0 +1,741 @@
+---
+openapi: 3.0.1
+info:
+  title: EasyFoodTruck
+  version: 1.0.0
+  description: API for the Easy Food Truck
+  contact:
+    name: Easy Food Truck Service API Github
+    url: https://github.com/adeo/iso--print-service
+    email: martin.gobert@lacatholille.fr
+tags:
+  - name: Ingredient
+    description: Methods dealing with Ingredient
+  - name: Product
+    description: Methods dealing with Product
+  - name: Menu
+    description: Methods dealing with Menu
+  - name: Estimation
+    description : Methods dealing with Estimation
+  - name: Replenishment
+    description: Methods dealing with Replenishment
+paths:
+  #  INGREDIENT
+  /v1/ingredient/add:
+    summary: Path used to create an ingredient
+    description: The REST endpoints/paths used to create an ingredient
+    post:
+      tags:
+        - Ingredient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngredientDTO'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Successful response - returns an Id.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: createIngredient
+      summary: create an ingredient
+      description: create an ingredient
+  /v1/ingredient/update:
+    summary: Path used to update an ingredient
+    description: The REST endpoints/paths used to update an ingredient
+    put:
+      tags:
+        - Ingredient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngredientDTO'
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngredientDTO'
+          description: Successful response - returns `IngredientDTO` entities.
+
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: updateIngredientId
+      summary: update an ingredient
+      description: update an ingredient
+  /v1/ingredient/{id}/delete:
+    summary: Path used to delete an ingredient
+    description: The REST endpoints/paths used to delete an ingredient
+    delete:
+      tags:
+        - Ingredient
+      parameters:
+        - name: id
+          description: id of the ingredient
+          required: true
+          schema:
+            type: integer
+          in: path
+      responses:
+        202:
+          description: Accepted.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: deleteIngredientId
+      summary: delete an ingredient
+      description: delete an ingredient
+  /v1/ingredient/all:
+    summary: Path used to view all ingredients
+    description: The REST endpoints/paths used to view all ingredients
+    get:
+      tags:
+        - Ingredient
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IngredientDTO'
+          description: Successful response - returns an array of `IngredientDTO` entities.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: getIngredients
+      summary: get all ingredients
+      description: get all ingredient
+
+  # PRODUCT
+  /v1/product/add:
+    summary: Path used to create a product
+    description: the REST endpoints/path used to create a product
+    post:
+      tags:
+        - Product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Successful response - returns an Id.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: createProduct
+      summary: create a product
+      description: create a product
+  /v1/product/update:
+    summary: Path used to update a product
+    description: the REST endpoints/path used to update a product
+    put:
+      tags:
+        - Product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+          description: Successful response - returns `ProductDTO` entities.
+
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: updateProductId
+      summary: update a product
+      description: update a product
+  /v1/product/all:
+    summary: Path used to view all products
+    description: The REST endpoints/paths used to view all products
+    get:
+      tags:
+        - Product
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductDTO'
+          description: Successful response - returns an array of `ProductDTO` entities.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: getProducts
+      summary: get all products
+      description: get all products
+  /v1/product/add_ingredient:
+    summary: Path used to add an ingredient in product id
+    description: The REST endpoints/paths used to add an ingredient in product id
+    post:
+      tags:
+        - Product
+      parameters:
+        - name: id
+          description: id of the product
+          required: true
+          schema:
+            type: integer
+          in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProductsIngredientDTO'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+          description: Successful response - returns an Id.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: addIngredientInProductId
+      summary: add an ingredient in product id
+      description: add an ingredient in product id
+
+  #Menu
+  /v1/menu/add:
+    summary: Path used to create a menu
+    description: The REST endpoints/paths used to create a menu
+    post:
+      tags:
+        - Menu
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenutDTO'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenutDTO'
+          description: Successful response -  returns   `MenutDTO` entities.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: createMenu
+      summary: create a menu
+      description: create a menu
+  /v1/menu/all:
+    summary: Path used to view all menu
+    description: The REST endpoints/paths used to view all menu
+    get:
+      tags:
+        - Menu
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MenutDTO'
+          description: Successful response - returns an array of `MenutDTO` entities.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: getMenus
+      summary: get all menus
+      description: get all menus
+  /v1/menu/delete_product:
+    summary: Path used to delete a product
+    description: The REST endpoints/paths used to delete a product
+    delete:
+      tags:
+        - Menu
+      parameters:
+        - name: id
+          description: id of the ingredient
+          required: true
+          schema:
+            type: integer
+          in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        202:
+          description: Accepted.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: deleteProductIdInMenu
+      summary: delete a product Id in menu
+      description: delete a product id in menu
+  /v1/menu/add_product:
+    summary: Path used to add a product in menu id
+    description: The REST endpoints/paths used to add a product in menu id
+    post:
+      tags:
+        - Menu
+      parameters:
+        - name: id
+          description: id of the product
+          required: true
+          schema:
+            type: integer
+          in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenutDTO'
+          description: Successful response - returns an Id.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: addProductInMenuId
+      summary: add an ingredient in product id
+      description: add an ingredient in product id
+
+  #ESTIMATION
+  /v1/estimation/add:
+    summary: Path used to create an estimation
+    description: The REST endpoints/paths used to create an estimation
+    post:
+      tags:
+        - Estimation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EstimationDTO'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EstimationDTO'
+          description: Successful response -  returns   `EstimationDTO` entities.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: createEstimation
+      summary: create an estimation
+      description: create an estimation
+  /v1/estimation/add_product:
+    summary: Path used to add a product  in estimation id
+    description: The REST endpoints/paths used to add a product  in estimation id
+    post:
+      tags:
+        - Estimation
+      parameters:
+        - name: id
+          description: id of the estimation
+          required: true
+          schema:
+            type: integer
+          in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ProductEstimationDTO'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EstimationDTO'
+          description: Successful response - returns `EstimationDTO` entities.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: addProductEstimationId
+      summary: add a product in estimation id
+      description: add a product in estimation id
+  /v1/estimation/add_menu:
+    summary: Path used to add a menu  in estimation id
+    description: The REST endpoints/paths used to add a menu  in estimation id
+    post:
+      tags:
+        - Estimation
+      parameters:
+        - name: id
+          description: id of the estimation
+          required: true
+          schema:
+            type: integer
+          in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/MenuEstimationDTO'
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EstimationDTO'
+          description: Successful response - returns `EstimationDTO` entities.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: addMenuestimationId
+      summary: add a mnu  in estimation id
+      description: add a  menu  in estimation id
+  /v1/estimation/all:
+    summary: Path used to view all estimation
+    description: The REST endpoints/paths used to view all estimation
+    get:
+      tags:
+        - Estimation
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EstimationDTO'
+          description: Successful response - returns an array of `EstimationDTO` entities.
+        400:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Bad request
+      operationId: getEstimations
+      summary: get all Estimation
+      description: get all Estimation
+
+  #Reapprovisionnement
+  /v1/replenishment/all:
+      summary: Path used to view all replenishmentDTO
+      description: The REST endpoints/paths used to view all replenishmentDTO
+      get:
+        tags:
+          - Replenishment
+        responses:
+          200:
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ReplenishmentDTO'
+            description: Successful response - returns an array of `ReplenishmentDTO` entities.
+          400:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Error'
+            description: Bad request
+        operationId: getReplenishmentDTO
+        summary: get all ReplenishmentDTO
+        description: get all ReplenishmentDTO
+
+
+
+components:
+  schemas:
+    Error:
+      title: Error
+      description: Standard error
+      required:
+        - errorCode
+        - errorReason
+      type: object
+      properties:
+        errorCode:
+          type: string
+          readOnly: true
+        errorReason:
+          type: string
+          readOnly: true
+        errorUrl:
+          type: string
+          readOnly: true
+      example:
+        errorCode: NOT_FOUND
+        errorReason: Business Attributes for the given Id 54f08135-c6bc-49b5-b4ce-a5b7474306e3
+          doesnt exist.
+        errorUrl: https://wiki.adeo.com/pages/not_found
+    IngredientDTO:
+      title: IngredientDTO
+      description: an ingredient
+      required:
+        - name
+        - description
+        - stock
+        - unit
+        - division
+      type: object
+      properties:
+        id_ingredient:
+          type: integer
+          description: id of the ingredient
+        name:
+          description: name of the ingredient
+          type: string
+        description:
+          description: name of the description
+          type: string
+        stock:
+          description: integer of the ingredient
+          type: integer
+        unit:
+          description: unit of the ingredient
+          type: string
+          enum:
+            - g
+            - l
+            - unitary
+        division:
+          description: the number of the ingredient in package
+          type: integer
+    ProductsIngredientDTO:
+      title: MaelIngredientDTO
+      description: link between ingredient and product
+      required:
+        - name
+        - quantity
+      type: object
+      properties:
+        name:
+          type: string
+          description: name of ingredient
+        quantity:
+          type: integer
+          description: quantity of ingredient to product
+    ProductDTO:
+      title: ProduitDTO
+      description: product content the list of the ingredient
+      required:
+        - name
+        - description
+        - type
+      type: object
+      properties:
+        id_product:
+          type: integer
+          description: id of the product
+        name:
+          type: string
+          description: the name of the product
+        description:
+          type: string
+          description: description of the product
+        type:
+          type: string
+          enum:
+            - meal
+            - drink
+            - dessert
+          description: type enum, type of the product
+        ingredient:
+          description: the list of the ingredient
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductsIngredientDTO'
+    MenutDTO:
+      title: MenutDTO
+      description: menu containt the list of product (meal, drink, dessert)
+      required:
+        - name
+        - description
+        - products
+      type: object
+      properties:
+        id:
+          type: integer
+          description: the id of menu
+        name:
+          type: string
+          description: the name of the menu
+        description:
+          type: string
+          description: the description of the menu
+        products:
+          type: array
+          items:
+            type: string
+    MenuEstimationDTO:
+      title: MenuEstimationDTO
+      description: the list of name Menu to estimation
+      required:
+        - name
+        - quantity
+      type: object
+      properties:
+        name:
+          type: string
+          description: the name of the menu
+        quantity:
+          type: integer
+          description: quantity of menu to estimation
+    ProductEstimationDTO:
+      title: ProdcutEstimationDTO
+      description: the list of name product to estimation
+      required:
+        - name
+        - quantity
+      type: object
+      properties:
+        name:
+          type: string
+          description: the name of the prodcut
+        quantity:
+          type: integer
+          description: quantity of product to estimation
+    EstimationDTO:
+      title: EstimationDTO
+      description: the list of estimation ( menu, product)
+      required:
+        - date
+      type: object
+      properties:
+        id:
+          type: integer
+          description: the id of estimation
+        date:
+          type: string
+          description: the date of the estimation
+        productsName:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductEstimationDTO'
+          description: the list of 'ProductEstimationDTO'
+        menusName:
+          type: array
+          items:
+            $ref: '#/components/schemas/MenuEstimationDTO'
+          description: the list of 'ProductEstimationDTO' '#/components/schemas/
+    ReplenishmentProductDTO:
+      title: ReplenishmentProductDTO
+      description: the product
+      type: object
+      properties:
+        name:
+          type: string
+          description: the name of the ingredient
+          readOnly: true
+        quantity:
+          type: integer
+          description: the quantity of the ingredient
+          readOnly: true
+        division:
+          type: integer
+          description: the distribution of the quantity for the ingredient
+          readOnly: true
+        unitary:
+          type: string
+          description: the unitary of the ingredient
+          readOnly: true
+        stock:
+          type: integer
+          description: stock of this ingredient
+    ReplenishmentDTO:
+      title: ReplenishmentDTO
+      description: containt the date and the list of product to replenishment
+      required:
+        - date
+      type: object
+      properties:
+        date:
+          type: string
+          description: the date of the estimation
+          readOnly: true
+        productList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReplenishmentProductDTO'
+
+
+
+
+
+
+
+
